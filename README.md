@@ -62,5 +62,5 @@ that we've used on the course.
 - The pictures for the carousel item on the home page is taken from [Pixel](https://www.pexels.com/search/people/)'s
 website.
 - Some code snippets written by exprienced developers have been taken from [Stackoverflow](https://stackoverflow.com/).
-- Last but not the least, the core idea of the project has been leveraged from [Week 9: Finance]
-(https://cs50.harvard.edu/x/2021/psets/9/finance/) problem set of CS50.
+- Last but not the least, the core idea of the project has been leveraged from 
+[Week 9: Finance](https://cs50.harvard.edu/x/2021/psets/9/finance/) problem set of CS50.
