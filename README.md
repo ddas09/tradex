@@ -5,9 +5,9 @@
 ## About
 For my CS50 final project, I've built a full stack trading web app using Django.
 It allows users to buy, sell and quote stocks with charting real time stock
-market data provided by [IEX Cloud API] (https://iexcloud.io/). For charting data,
-I've used the embeded chart widgets of [TradingView] (https://in.tradingview.com/).
-The idea of the project relies upon the [Week 9: Finance] (https://cs50.harvard.edu/x/2021/psets/9/finance/)
+market data provided by [IEX Cloud API](https://iexcloud.io/). For charting data,
+I've used the embeded chart widgets of [TradingView](https://in.tradingview.com/).
+The idea of the project relies upon the [Week 9: Finance](https://cs50.harvard.edu/x/2021/psets/9/finance/)
 problem set of CS50. But I've managed to enhance the project by leveraging ideas taught
 in the course and implementing some unique features that not makes the application
 aesthetically pleasant but also improves the security of it.
@@ -34,7 +34,7 @@ statistics and current balance.
 
 `/user/stocks`
 This route shows all the available stock symbols on a table. The table is spawned on multiple
-pages by the use of [Django Paginator] (https://docs.djangoproject.com/en/3.2/topics/pagination/).
+pages by the use of [Django Paginator](https://docs.djangoproject.com/en/3.2/topics/pagination/).
 This page also contains a filter to show a specific type of stock from the table.
 
 `/user/stocks/quote`, `/user/stocks/buy` and `/user/stocks/sell`
@@ -56,11 +56,11 @@ media queries and bootstrap classes.
 by using AJAX form submissions.
 
 ## Resources
-- All the financial market informations are provided by the [IEX Cloud API] (https://iexcloud.io/),
+- All the financial market informations are provided by the [IEX Cloud API](https://iexcloud.io/),
 that we've used on the course.
-- The beautiful stock chart widgets are borrowed from [TradingView]'s (https://in.tradingview.com/) website.
-- The pictures for the carousel item on the home page is taken from [Pixel]'s (https://www.pexels.com/search/people/)
+- The beautiful stock chart widgets are borrowed from [TradingView](https://in.tradingview.com/)'s website.
+- The pictures for the carousel item on the home page is taken from [Pixel](https://www.pexels.com/search/people/)'s
 website.
-- Some code snippets written by exprienced developers have been taken from [Stackoverflow] (https://stackoverflow.com/).
+- Some code snippets written by exprienced developers have been taken from [Stackoverflow](https://stackoverflow.com/).
 - Last but not the least, the core idea of the project has been leveraged from [Week 9: Finance]
 (https://cs50.harvard.edu/x/2021/psets/9/finance/) problem set of CS50.
