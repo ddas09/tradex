@@ -1,0 +1,75 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Portfolio {% endblock %}
+
+{% block body %} 
+<div class="portfolio">
+  <h1 class="h3">Hello, {{ user.first_name }}</h1>
+  <hr>
+  {% include 'backbone/flash_msg.html'%}
+  
+  <table id="stocks-table" class="mt-1 table table-bordered">
+    <i class="fas fa-briefcase"></i>
+    <h5>Balance</h5>
+    <thead>
+      <tr>
+        <th>Cash</th>
+        <th>Bought</th>
+        <th>Sold</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>$ {{ user.balance }}</td>
+        <td>$ {{ stat.bought }}</td>
+        <td>$ {{ stat.sold }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table id="stocks-table" class="mt-1 table table-striped table-bordered">
+    <i class="fas fa-chart-pie"></i>
+    <h5>Portfolio ({{ count }})</h5>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for stock in portfolio %}
+        <tr>
+          <td>{{ stock.symbol }}</td>
+          <td>
+            <a href="/user/stocks/price/{{ stock.symbol }}/" class="quick-link">
+              {{ stock.name }}
+            </a>
+          </td>
+          <td>{{ stock.shares_owned }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if not portfolio %}
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading"><strong>Oops!</strong></h4>
+      <p>
+        Looks like you don't own any shares currently. Go to the 
+        <a class="alert-link" href="/user/stocks/buy">buying page</a>
+        to buy some stocks and increase your portfolio.
+      </p>
+    </div>
+  {% endif %}
+
+  <p class="text-muted text-center my-4">
+    All financial informations are provided by 
+    <a class="quick-link" href="https://iexcloud.io/docs/api/" target="_blank">
+      IEX Cloud API.
+    </a>  
+    <br>&copy; 2010 - {% now "Y" %}, All rights reserved.
+  </p> 
+</div>     
+{% endblock %}

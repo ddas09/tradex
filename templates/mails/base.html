@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        .box-mail {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px 0px;
+        }
+
+        h2 {
+            color: #6f42c1;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        #head {
+            font-size: 18px;
+            font-weight: 600;
+        }    
+
+        #muted {
+            opacity: 0.6;
+            font-size: 12px;
+        }
+
+        hr {
+            opacity: 0.3;
+        }
+
+        .msg-center {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+
+        #otp {
+            font-size: 20px;
+        }
+
+        .foot {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f0efef;">
+    <div class="box-mail">
+        <div class="msg-center">
+            <h2>TradeX Inc</h2>
+            {% block body%}
+            {% endblock %}
+            
+            <p>
+                Regards,<br>
+                TradeX Support Team
+            </p>
+            
+            <hr>
+            <p id="muted">
+                This email was automatically sent from TradeX.
+                <br>
+                Please do not reply to this email. This address is currently not being monitored.
+            </p>       
+        </div>
+
+        <div class="foot">
+            <p id="muted">
+                Copyright &copy; {% now "Y" %} TradeX, All riights reserved
+            </p>  
+            <p id="muted">
+                TradeX Broking Ltd., 310002A, Random Street, Nowhere    
+            </p>
+        </div>    
+    </div>  
+</body>
+</html>

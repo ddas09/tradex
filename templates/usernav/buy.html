@@ -1,0 +1,32 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Buy stocks {% endblock %}
+
+{% block body %}
+<div class="text-center">
+  <main class="form-simple">
+    <img class="mt-5" src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 my-4 fw-normal">Enter stock symbol to buy</h1>
+    
+    {% include 'backbone/flash_msg.html'%}
+
+    <form id="stock-buy">
+      {% csrf_token %}
+      <label for="symbol">Symbol</label>
+      <input autofocus autocomplete="off" type="text" class="symbol my-3 form-control" 
+      id="symbol" name="symbol" pattern="[A-Za-z]{1,}" placeholder="AAPL" maxlength="30"
+      title="Please insert a valid stock symbol" required>
+
+      <label for="shares">Shares</label>
+      <input autocomplete="off" type="number" class="my-3 form-control" id="shares"
+      name="shares" placeholder="Enter number of shares" min="5" max="100" required>
+      
+      <button class="mt-3 w-100 btn btn-lg btn-primary" type="submit">Buy Shares</button>
+    </form>
+    <p class="my-3 text-muted">
+      You can find the list of stock symbols
+      <a class="quick-link" href="/user/stocks/">here</a>
+    </p>
+  </main>  
+</div>
+{% endblock %}

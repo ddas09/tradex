@@ -1,0 +1,22 @@
+{% extends 'mails/base.html' %}
+
+{% block title %} Email verification successfull {% endblock %}
+
+{% block body %}
+<p id="head">
+    Hey there!
+</p>
+
+<p>Thank you for choosing TradeX.</p>
+
+<p>
+    Your email (<a href="mailto:{{ mail }}" target="_blank">{{ mail }}</a>) has
+    been successfully verified.
+    Complete the registration process to unlock your TradeX account.
+</p>
+
+<p>
+    I'm just a call away in case of any queries and you can reach me
+    on +91 82 6629 9724.
+</p>
+{% endblock %}

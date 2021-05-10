@@ -1,0 +1,68 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} TradeX &dash; online trading platform {% endblock %}
+
+{% block body %}
+<div class="landing">
+  <img class="main-img" src="/static/images/home.png" alt="TradeX, No,1 trading platform">
+  <h1>Let's grow together</h1>
+  <h5>Best online platform to invest in stocks with lowest brokerage</h5>
+  <button class="register-button"><a href="/register">Sign up now</a></button>
+</div>
+
+<div class="landing my-5">
+  <h2>User Reviews</h2>
+  <div class="underline my-2"></div>
+  <h5>See what our users are saying about us</h5>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {% for review in reviews %}
+      {% if forloop.counter0 == 0 %}
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="active"></button>
+      {% else %}
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}"></button> 
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="carousel-inner">
+    {% for review in reviews %}
+      {% if review.id == 1 %}
+        <div class="carousel-item active" data-bs-interval="10000">
+          <div class="reviews">
+            <img src="/static/images/people/Customers/{{ review.id }}.jpg" alt="{{ review.first_name }}">
+            <h5>{{ review.first_name }} {{ review.last_name }}</h5>
+            <h6 class="text-grey">{{ review.time }}</h6>
+            <p>
+              {{ review.message }}
+            </p>   
+          </div>
+        </div>        
+      {% else %}
+        <div class="carousel-item" data-bs-interval="5000">
+          <div class="reviews">
+            <img src="/static/images/people/Customers/{{ review.id }}.jpg" alt="{{ review.first_name }}">
+            <h5>{{ review.first_name }} {{ review.last_name }}</h5>
+            <h6 class="text-grey">{{ review.time }}</h6>
+            <p>
+              {{ review.message }}
+            </p>   
+          </div>
+        </div>
+      {% endif %} 
+    {% endfor %}
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <i class="fas fa-chevron-left"></i>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <i class="fas fa-chevron-right"></i>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> 
+{% endblock %}

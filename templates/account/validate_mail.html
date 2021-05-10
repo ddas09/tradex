@@ -1,0 +1,37 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Verify your email {% endblock %}
+
+{% block body %}
+<div class="text-center">
+  <main class="form-simple">
+    <img class="mt-5 mb-4" src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 mb-4 fw-normal">Confirm OTP</h1>
+
+    {% include 'backbone/flash_msg.html'%}
+    
+    <p class="info my-4 text-muted">
+      Enter the OTP sent to your email address
+      <a class="quick-link" href="/register/">(Change Email)</a>
+    </p> 
+ 
+    <form id="validate-mail">
+      {% csrf_token %}
+      <label for="otp">OTP</label>
+      <input autocomplete="off" autofocus type="text" class="mt-3 form-control"
+      name="otp" placeholder="967458" id="otp" pattern="[0-9]{6}" maxlength="6"
+      title="Please enter the otp sent to your email." required>
+
+      <p class="info my-2 text-muted">
+        Didn't recieve any OTP? 
+        <a class="quick-link" href="/account/send_otp/">Resend OTP</a>
+      </p>
+      
+      <button class="mt-3 mb-5 w-100 btn btn-lg btn-primary" type="submit">Continue</button>
+    </form>
+    
+    <p class="text-muted">Never share your OTP with anyone.</p>
+    <p class="text-muted">&copy; 2010 - {% now "Y" %}</p>
+  </main>  
+</div>
+{% endblock %}

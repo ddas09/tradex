@@ -1,0 +1,32 @@
+{% extends 'mails/base.html' %}
+
+{% block title %} Verify your mail {% endblock %}
+
+{% block body %}
+<p id="head">
+    Hey there!
+</p>
+
+<p>
+    Thank you for choosing TradeX.
+</p>
+
+<p>
+    Please enter the following one time password / confirmation code
+    to complete the email verification process for your TradeX account.
+</p>  
+
+<p>
+    TradeX Email Confirmation Code:<br>
+    <b id="otp">{{ otp }}</b>
+</p>
+<p>   
+    *If you did not attempt to sign up for a TradeX account:<br>
+    Someone else may have entered your email address by accident.<br>
+    We kindly ask that you discard this email.
+</p>
+
+<p>
+    Thank you for using TradeX.
+</p> 
+{% endblock %}
