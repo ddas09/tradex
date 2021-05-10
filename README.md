@@ -1,8 +1,8 @@
-#TradeX - Online Trading Platform
+# TradeX - Online Trading Platform
 
 **Environment:** Django,  Python, HTML, CSS, Javascript
 
-##About
+## About
 For my CS50 final project, I've built a full stack trading web app using Django.
 It allows users to buy, sell and quote stocks with charting real time stock
 market data provided by [IEX Cloud API] (https://iexcloud.io/). For charting data,
@@ -12,10 +12,10 @@ problem set of CS50. But I've managed to enhance the project by leveraging ideas
 in the course and implementing some unique features that not makes the application
 aesthetically pleasant but also improves the security of it.
 
-###To run the application:
+### To run the application:
 Use `python manage.py runserver` command from the route directory of the project.
 
-###Routes
+### Routes
 `/`
 The index route contains a `bootstrap carousel` that shows all the customer reviews
 on the home page.
@@ -48,14 +48,14 @@ allows users to customize the chart according to their need.
 `user/transaction/history`
 All the transaction history of the user is displayed on this page.
 
-###Highlights
+### Highlights
 - I've tried to make the whole application as much responsive as I could using css
 media queries and bootstrap classes.
 - I've also implemented a mobile friendly navbar and responsive footer on the project.
 - Security is maintained while keeping in mind the user friendliness of the application
 by using AJAX form submissions.
 
-###Resources
+## Resources
 - All the financial market informations are provided by the [IEX Cloud API] (https://iexcloud.io/),
 that we've used on the course.
 - The beautiful stock chart widgets are borrowed from [TradingView]'s (https://in.tradingview.com/) website.
