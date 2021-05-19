@@ -6,7 +6,7 @@ sys.path.append(os.getcwd())
 from stocks.requests import sendApiRequest
 
 # Accquire connection to the database
-connection = sqlite3.connect("db.sqlite3")
+connection = sqlite3.connect("stocks.sqlite3")
 cursor = connection.cursor()
 
 

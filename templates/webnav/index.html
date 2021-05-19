@@ -30,7 +30,7 @@
   <div class="carousel-inner">
     {% for review in reviews %}
       {% if review.id == 1 %}
-        <div class="carousel-item active" data-bs-interval="10000">
+        <div class="carousel-item active" data-bs-interval="5000">
           <div class="reviews">
             <img src="/static/images/people/Customers/{{ review.id }}.jpg" alt="{{ review.first_name }}">
             <h5>{{ review.first_name }} {{ review.last_name }}</h5>
