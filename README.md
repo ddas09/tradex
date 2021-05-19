@@ -3,7 +3,10 @@
 **Environment:** Django, Python, HTML, CSS, Javascript
  
 ## Demo:
-https://user-images.githubusercontent.com/75975903/118786657-aad7f780-b8af-11eb-98ff-a3569ac0d0db.mp4
+
+https://user-images.githubusercontent.com/75975903/118786880-df4bb380-b8af-11eb-898d-d8392ad1eaae.mp4
+
+
 
 ## About
 It allows users to buy, sell and quote stocks with charting real time stock
