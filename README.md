@@ -4,8 +4,8 @@
 
 ## About
 It allows users to buy, sell and quote stocks with charting real time stock
-market data provided by [IEX Cloud API](https://iexcloud.io/). For charting stock data,
-I've used the embeded chart widget of [TradingView](https://in.tradingview.com/).
+market data provided by [IEX Cloud API](https://iexcloud.io/). 
+For charting stock data, I've used the embeded chart widget of [TradingView](https://in.tradingview.com/).
 The idea of the project relies upon the [Week 9: Finance](https://cs50.harvard.edu/x/2021/psets/9/finance/) 
 problem set of CS50. 
 
