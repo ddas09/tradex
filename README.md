@@ -1,6 +1,9 @@
 # TradeX - Full stack django trading app
 
 **Environment:** Django, Python, HTML, CSS, Javascript
+ 
+## Demo:
+[https://www.youtube.com/watch?v=imuhYu40YWk]
 
 ## About
 It allows users to buy, sell and quote stocks with charting real time stock
