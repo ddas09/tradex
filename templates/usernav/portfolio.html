@@ -1,5 +1,7 @@
 {% extends 'backbone/layout.html' %}
 
+{% load custom_filters %}
+
 {% block title %} Portfolio {% endblock %}
 
 {% block body %} 
@@ -9,7 +11,7 @@
   {% include 'backbone/flash_msg.html'%}
 
   <div class="mt-4 mb-2">
-    <i class="fas fa-briefcase"></i>
+    <i class="fas fa-wallet"></i>
     <h5>Balance</h5>
   </div>
 
@@ -33,7 +35,7 @@
 
   <div class="mt-4 mb-2">
     <i class="fas fa-chart-pie"></i>
-    <h5>Portfolio ({{ count }})</h5>
+    <h5>Holdings ({{ portfolio|length }})</h5>
   </div>
 
   <table id="stocks-table" class="table table-striped table-bordered">
@@ -41,6 +43,7 @@
       <tr>
         <th>Symbol</th>
         <th>Name</th>
+        <th>Price</th>
         <th>Shares</th>
       </tr>
     </thead>
@@ -54,6 +57,7 @@
               {{ stock.name }}
             </a>
           </td>
+          <td>{{ prices|get_price:stock.symbol }}</td>
           <td>{{ stock.shares_owned }}</td>
         </tr>
       {% endfor %}
@@ -68,11 +72,11 @@
         <a class="alert-link" href="/user/stocks/buy">buying page</a>
         to buy some stocks and increase your portfolio.
       </p>
-    </div>
+    </div>    
   {% endif %}
 
   <p class="text-muted text-center my-4">
-    All financial informations are provided by 
+    <b>Price</b> column refers to the current market price of the stock as provided by
     <a class="quick-link" href="https://iexcloud.io/docs/api/" target="_blank">
       IEX Cloud API.
     </a>  

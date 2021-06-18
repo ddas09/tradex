@@ -11,7 +11,7 @@ cursor = connection.cursor()
 
 
 # Get stock list registered on IEX
-stocks = sendApiRequest("ref-data/symbols?filter=symbol,name,type, isEnabled&" , sandbox_request = False)
+stocks = sendApiRequest("ref-data/symbols?filter=symbol,name,type,isEnabled&", sandbox_request = False)
 allowed_stock_types = ['ad', 'cs', 'ps']
 
 # Insert new stock informations

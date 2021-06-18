@@ -6,7 +6,7 @@ load_dotenv()
 
 
 # Provides functions to send API requests to IEX Cloud
-def sendApiRequest(raw_url, sandbox_request = True):
+def sendApiRequest(endpoint_url, sandbox_request = True):
     '''If sandbox_request is False, it will use production url for API calls
     Visit IEX Cloud website @https://iexcloud.io/docs/api/ for more details'''
 
@@ -19,7 +19,7 @@ def sendApiRequest(raw_url, sandbox_request = True):
 
     # Calling API
     try:
-        request_url = base_url + raw_url + api_token
+        request_url = base_url + endpoint_url + api_token
         response = requests.get(request_url)
         response.raise_for_status()
         results = response.json()
@@ -31,11 +31,25 @@ def sendApiRequest(raw_url, sandbox_request = True):
 
 
 def getHistoricalPrice(symbol):
-    raw_url = f"stock/{symbol}/chart/6m?filter=close,high,low,open,volume,date&"    
-    price_history = sendApiRequest(raw_url)
+    endpoint_url = f"stock/{symbol}/chart/6m?filter=close,high,low,open,volume,date&"    
+    price_history = sendApiRequest(endpoint_url)
     return price_history
 
 
 def getStockPrice(symbol):
     price = sendApiRequest(f"stock/{symbol}/price?")
     return price
+
+
+def getAllStockPrice(symbols):
+    # Build endpoint url to send a batch request 
+    if not symbols:
+        return None
+        
+    endpoint_url = "stock/market/batch?symbols="
+    for symbol in symbols:
+        endpoint_url += symbol + ","
+    endpoint_url += "&types=price&"
+
+    prices = sendApiRequest(endpoint_url)
+    return prices

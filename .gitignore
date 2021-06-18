@@ -3,3 +3,4 @@
 trade/__pycache__
 stocks/__pycache__
 stocks/migrations/__pycache__
+stocks/templatetags/__pycache__

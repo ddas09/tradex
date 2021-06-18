@@ -122,7 +122,6 @@ def getTransactionHistory(user_id):
 
 def getStockInfo(symbol):
     result = executeQuery("SELECT id, symbol, name FROM stocks WHERE symbol = %s", [symbol.upper()])
-
     if result:
         result[0]['name'] = stripStockName(result[0]['name'])
         return result[0]
@@ -132,7 +131,6 @@ def getStockInfo(symbol):
 
 def getAllStockInfo():
     stocks = executeQuery("SELECT * FROM stocks")
-
     if stocks:
         for stock in stocks:
             stock['name'] = stripStockName(stock['name'])
@@ -149,7 +147,6 @@ def getCustomerReviews():
     
 def emailExists(mail):
     is_registered = executeQuery("SELECT id FROM users WHERE email = %s", [mail])
-
     if is_registered:
         return True
     else:
@@ -158,7 +155,6 @@ def emailExists(mail):
 
 def usernameExists(username):
     username_exists = executeQuery("SELECT id FROM users WHERE username = %s", [username])
-
     if username_exists:
         return True
     else:
@@ -167,7 +163,6 @@ def usernameExists(username):
 
 def cardExists(card_number):
     card_exists = executeQuery("SELECT id FROM users WHERE card_number = %s", [card_number])
-
     if card_exists:
         return True
     else:
@@ -176,7 +171,6 @@ def cardExists(card_number):
 
 def getUserId(username, password):
     user = executeQuery("SELECT id, hashed FROM users WHERE username = %s", [username])
-
     # Check if hashed passwords match
     if user and check_password(password, user[0]['hashed']):
         return user[0]['id']    

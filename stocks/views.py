@@ -111,7 +111,7 @@ def register(request):
 
 
 ''' These are views that renders different forms when a user registers
-    These must be wrapped with a decorator to ensure that user can"t
+    These must be wrapped with a decorator to ensure that user can't
     access these views by manually entering the urls '''
 
 @mail_required
@@ -257,12 +257,16 @@ def portfolio(request):
     user_id = request.session["user_id"]
     user = getUserInfo(user_id)
     portfolio = getUserPortfolio(user_id)
-
-    # Get user transaction satistics
     stat = getTransactionStatistics(user_id)
-    stock_count = len(portfolio)
 
-    context = {"user": user, "portfolio": portfolio, "count": stock_count, "stat": stat}
+    symbols = []
+    for stock in portfolio:
+        symbols.append(stock['symbol'])
+
+    # Get market price of each stock in user's portfolio
+    prices = getAllStockPrice(symbols)
+
+    context = {"user": user, "stat": stat, "portfolio": portfolio, "prices": prices}
     return render(request, "usernav/portfolio.html", context)
 
 
