@@ -356,7 +356,7 @@ def buy(request):
         user_id = request.session["user_id"]
         balance = getUserBalance(user_id)
         
-        # Update user balance and add shares to user"s portfolio
+        # Update user balance and add shares to user's portfolio
         if balance >= total_cost:
             updateUserBalance(user_id, -total_cost)
             recordTransaction(user_id, stock["id"], shares, stock_price, "B")
@@ -398,7 +398,6 @@ def sell(request):
             updateUserBalance(user_id, income)
             recordTransaction(user_id, stock["stock_id"], shares, stock_price, "S")
             updatePortfolio(user_id, stock["stock_id"], -shares, "S")
-            
             messages.info(request, f"Successfully sold {shares} share(s) of {stock['name']} ({symbol})")
             return JsonResponse({"status": 0, "redirectUrl": "/user/stocks/sell/"})
         else:    
