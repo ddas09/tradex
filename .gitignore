@@ -1,3 +1,4 @@
+.env
 .vscode/
 Procfile
 trade/__pycache__
