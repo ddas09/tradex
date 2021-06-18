@@ -1,0 +1,52 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} {{ title }}: unlock premium features with paid plans {% endblock %}
+
+{% block body %}
+<div class="text-center">
+    <main class="form-simple">
+        <img class="my-4 " src="/static/images/logo.png" alt="TradeX logo" width="150">
+        <h1 class="h3 mb-3 fw-normal">Select your plan</h1>
+        
+        <form id="{{ form_id }}">
+            {% csrf_token %}
+            <label for="card">Card Number</label>
+            <input autocomplete="off" autofocus type="text" class="my-3 form-control" id="card" 
+            name="card" pattern="^(3[47][0-9]{13}|5[1-5][0-9]{14}|4[0-9]{12}(?:[0-9]{3})?)$" 
+            title="Please enter a valid credit card number."maxlength="16"
+            placeholder="7894-2456-9878-7845" required>
+            
+            {% if form_id == "select-plan" %}
+                <label for="cardtype">Card Type</label>
+                <select name="cardtype" id="cardtype" class="form-select my-3" required>
+                    <option style="display: none;" value="" selected disabled>Select Card Type</option>
+                    <option style="color: goldenrod;" value="AMEX">AMEX</option>
+                    <option style="color: blue;" value="VISA">VISA</option>
+                    <option style="color: brown" value="MASTERCARD">MASTERCARD</option>
+                </select>
+            {% endif %}  
+
+            <label for="plantype">Plan Type</label>
+            <select name="plantype" id="plantype" class="form-select my-3" oninput="displayPrice(this)" required>
+                <option style="display: none;" value="" selected disabled>Select Plan Type</option>
+                <option style="color: red;" value="STARTER">STARTER</option>
+                <option style="color: orange;" value="PROFESSIONAL">PROFESSIONAL</option>
+                <option style="color: green;" value="ENTERPRISE">ENTERPRISE</option>
+            </select>
+            
+            <button class="my-3 w-100 btn btn-lg btn-primary" type="submit">
+                Pay<b id="plan-price"></b>
+            </button>
+        </form>
+
+        <p class="text-muted">
+            Visit
+            <a class="quick-link" href="https://www.freeformatter.com/credit-card-number-generator-validator.html" target="_blank">
+                freeformatter.com
+            </a>
+            to test with a free card.<br>
+            &copy; 2010 - {% now "Y" %}
+        </p>
+    </main>  
+</div>
+{% endblock %}

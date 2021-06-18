@@ -1,0 +1,46 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Open a account and start trading {% endblock %}
+
+{% block body %}
+<div class="landing">
+    <h1>Join 5+ million investors & traders</h1>
+    <h5>
+      Open your account and start investing today<br>
+      Sign up and explore the TradeX Unieverse
+    </h5>
+    <div class="main">
+      <img class="main-img" src="/static/images/quotes.png" alt="TradeX, No,1 trading platform">
+    </div>
+</div>
+
+<div class="text-center">
+  <main class="form-simple">
+    <img class="my-4 " src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 mb-4 fw-normal">Verify your email</h1>
+ 
+    {% include 'backbone/flash_msg.html'%}
+
+    <form id="enter-mail">
+      {% csrf_token %}
+      <label for="mail">Email</label>
+      <input autocomplete="off" autofocus type="email" maxlength="64" 
+      pattern="^[a-z0-9]{1}[a-z0-9._%+-]{3,}@[a-z0-9]{3,}\.[a-z]{2,}$" 
+      class="form-control mt-3" name="mail" placeholder="name@example.com"
+      id="mail" title="Please enter a valid email." required>
+
+      <p class="my-2 text-muted">You will recieve an OTP on this email</p> 
+      
+      <button class="mt-4 w-100 btn btn-lg btn-primary" type="submit">Continue</button>
+    </form>
+    
+    <p class="mt-3 mb-4 text-muted">
+      Already have an account?
+      <a class="quick-link" href="/login/">Sign in</a>
+    </p>
+
+    <p class="text-muted">Be aware of spam email with fake links.</p>
+    <p class="text-muted">&copy; 2010 - {% now "Y" %}</p>
+  </main>  
+</div>
+{% endblock %}

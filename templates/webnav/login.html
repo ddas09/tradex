@@ -1,0 +1,56 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Login to your account{% endblock %}
+
+{% block body %}
+<div class="landing">
+    <h1>The TradeX Universe</h1>
+    <h5>
+      A whole ecosystem of modern investment<br>
+      tailored to specific needs, built from the ground up
+    </h5>
+    <div class="main">
+      <img class="main-img" src="/static/images/quotes.png" alt="TradeX, No,1 trading platform">
+    </div>
+</div>
+
+<div class="text-center">
+  <main class="form-simple">
+    <img class="my-4" src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 mb-4 fw-normal">Login to Continue</h1>
+    
+    {% include 'backbone/flash_msg.html'%}
+
+    <form id="login-form">
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input autofocus autocomplete="off" type="text" class="my-3 form-control" id="username"
+      name="username" pattern="^[A-Za-z]{1}[A-Za-z0-9]{5,}" placeholder="david007" 
+      maxlength="30" title="Please insert a valid username." required>
+
+      <label for="pass">Password</label>
+      <input type="password" autocomplete="off" class="my-3 form-control" name="password" 
+      id="pass" placeholder="password" maxlength="32" required>
+      
+      <div id="toggler" class="space-between mb-2">
+        <span>
+          <input onclick="toggleView()" autocomplete="off" id="toggle" type="checkbox">&nbsp; Show Password
+        </span>  
+        <span>
+          <a class="quick-link" href="/account/confirm_mail/" >Forgot password?</a>
+        </span>  
+      </div>
+
+      <button class="mt-3 w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+    </form>
+    
+    <p class="mt-3 mb-4 text-muted">
+      Don't have an account yet?
+      <a class="quick-link" href="/register/">Sign up</a>
+    </p>
+
+    <p class="text-muted">By signing in you accept the privacy and policy of TradeX.</p>
+    <p class="text-muted">&copy; 2010 - {% now "Y" %}</p>
+  </main>  
+</div>
+{% endblock %}

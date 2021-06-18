@@ -1,0 +1,60 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Your transaction summary {% endblock %}
+
+{% block body %}
+<div class="stocks table-responsive">
+    <h4 class="mb-3">Transaction Summary</h4>
+    <table id="stocks-table" class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Symbol</th>
+                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+
+        <tbody>            
+        {% for transaction in transaction_history %}
+            <tr>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.symbol }}</td>
+                <td>{{ transaction.name }}</td>
+                <td>{{ transaction.quantity }}</td>
+                <td>{{ transaction.price }}</td>
+                {% if transaction.type == 'S' %}
+                    <td>Sold</td>
+                {% elif transaction.type == 'B' %}
+                    <td>Bought</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if not transaction_history %}
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading"><strong>Oops!</strong></h4>
+            <p>
+                Looks like you have not made any transactions so far. Go to the 
+                <a class="alert-link" href="/user/stocks/buy">buying page</a>
+                to buy some stocks and increase your portfolio.
+            </p>
+        </div>
+    {% endif %}
+
+    <p class="text-muted text-center my-4">
+        All the financial informations are provided by 
+        <a class="quick-link" href="https://iexcloud.io/docs/api/" target="_blank">
+            IEX Cloud API.<br>
+        </a>  
+        Don't know how to get started? Go through this stock fundamentals
+        <a class="quick-link" href="https://youtu.be/y7iVTTH5tOA" target="_blank">
+            playlist
+        </a>to kickstart your journey.<br>
+    </p>
+</div>
+{% endblock %}

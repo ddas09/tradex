@@ -1,0 +1,37 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Create your account without any paperwork {% endblock %}
+
+{% block body %}
+<div class="text-center">
+  <main class="form-simple">
+    <img class="mt-5 mb-4" src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 mb-4 fw-normal">Enter your details</h1>
+
+    {% include 'backbone/flash_msg.html'%}
+    
+    <form id="open-account">
+      {% csrf_token %}
+      <label for="fname">First Name</label>
+      <input autocomplete="off" autofocus type="text" class="my-3 form-control" 
+      name="fname" pattern="[A-Za-z]{3,}" maxlength="30" id="fname" 
+      title="Name can only contain letters, min-length: 3 chars." placeholder="John" required>
+
+      <label for="lname">Last Name</label>
+      <input autocomplete="off" type="text" class="my-3 form-control" 
+      name="lname" id="lname" pattern="[A-Za-z]{3,}" maxlength="30" 
+      title="Name can only contain letters, min-length: 3 chars." placeholder="Cena" required>
+
+      <label for="username">Create Username</label>
+      <input autocomplete="off" type="text" class="my-3 form-control" name="username" 
+      id="username" pattern="^[A-Za-z]{1}[A-Za-z0-9]{5,}$" placeholder="david007" 
+      title="Username must start with letter and contain only lowercase letters and numbers, min-length: 6 chars." required maxlength="30">
+
+      <button class="mt-3 mb-5 w-100 btn btn-lg btn-primary" type="submit">Continue</button>
+    </form>
+    
+    <p class="text-muted">Do not share your login credentials with anyone.</p>
+    <p class="text-muted">&copy; 2010 - {% now "Y" %}</p>
+  </main>  
+</div>
+{% endblock %}

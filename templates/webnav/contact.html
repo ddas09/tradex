@@ -1,0 +1,102 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block body %}
+<div class="landing">
+    <h1>Contact us</h1>
+    <h5>
+        Contact us on the following number<br>
+        or send a mail with your queries
+    </h5>
+    <hr class="tag-hr">
+</div>
+
+<div class="contact">
+    <div class="contact-details">
+        <h3>
+            Contact details
+        </h3>
+        <p class="mt-2 mb-3 text-muted">
+            Never share your OTP with anyone! We never ask for OTP or your password.
+            If you ever recieve any call or mail asking for your password or any OTP, 
+            please report to us as soon as possible. Use a strong password combination 
+            while creating your account, don't use passwords that you use for other 
+            websites or accounts.
+        </p>
+
+        <div class="info mt-2 mb-3">
+            <i class="fas fa-map-marker-alt"></i>
+            310002A, Random Street, Nowhere
+        </div>
+        
+        <div class="info mt-2 mb-3">
+            <i class="fas fa-phone-alt"></i>
+            +91 82 6629 9724
+        </div>
+
+        <div class="info mt-2 mb-3">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:service.tradex@gmail.com" target="_blank">service.tradeX@gmail.com</a>
+        </div>
+    </div>
+    <hr class="tag-hr">
+
+    <div class="social-handles">
+        <h4 class="mt-5 mb-3 text-muted">
+            You can also find us on the following channels
+        </h4>
+        <a href="https://www.facebook.com/TradexFB" target="_blank">
+            <i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/tradexfx.co" target="_blank">
+            <i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/tradexteam" target="_blank">
+            <i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCZAPx8aRAA5QIryLgRIMj7w" target="_blank">
+            <i class="fab fa-youtube"></i></a>
+        <a href="https://in.linkedin.com/company/tradex-insurance" target="_blank">
+            <i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <div class="text-center">
+        <main class="form-simple">
+          <img class="mt-5 mb-4" src="/static/images/logo.png" alt="TradeX logo" width="150">
+          <h1 class="h3 mb-4 fw-normal">Leave us a feedback</h1>
+
+          {% include 'backbone/flash_msg.html'%}   
+
+          <form id="feedback-form">
+            {% csrf_token %}
+            <label for="fname">First name</label>
+            <input autocomplete="off" autofocus type="text" class="my-3 form-control" 
+            name="fname" pattern="[A-Za-z]{3,}" maxlength="30" id="fname" placeholder="John"
+            title="Please insert a valid name." required>
+
+            <label for="lname">Last name</label>
+            <input autocomplete="off" type="text" class="my-3 form-control" name="lname" 
+            id="lname" pattern="[A-Za-z]{3,}" maxlength="30" placeholder="Cena" 
+            title="Please insert a valid name." required>
+                    
+            <label for="mail">Your Mail</label>
+            <input autocomplete="off" type="email" class="my-3 form-control" name="email" 
+            id ="mail" pattern="^[a-z0-9]{1}[a-z0-9._%+-]{3,}@[a-z0-9]{3,}\.[a-z]{2,}$"
+            title="Please insert a valid email." maxlength="64" 
+            placeholder="name@example.com" required>
+            
+            <label for="msg-box">Your Message</label>
+            <textarea autocomplete="off" name="msg" id="msg-box" class="form-control my-3" cols="30" rows="5" 
+            placeholder="Hi there! Please share your experience with TradeX here." 
+            minlength="20" maxlength="350" required></textarea>
+
+            <button class="mt-4 w-100 btn btn-lg btn-primary" type="submit">Send Message</button>
+        </form>
+
+        <p class="mt-5 text-muted">
+            Feel free to write about your experience with us.<br>
+            We use your feedbacks to improve ourselvs.
+        </p>
+        <p class="text-muted">&copy; 2010 - {% now "Y" %}</p>
+        </main>  
+    </div>
+</div>
+{% endblock %}

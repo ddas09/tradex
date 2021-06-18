@@ -1,0 +1,23 @@
+{% extends 'mails/base.html' %}
+
+{% block title %} Welcome to TradeX! {% endblock %}
+
+{% block body %}
+<p id="head">
+    Dear {{ user }},
+</p>
+
+<p>
+    Welcome to TradeX! Your TradeX account has been created successfully.
+    You have purchased our <b>{{ plan }}</b> plan. Your card number {{ card }} 
+    has been charged <b>${{ price }}</b> towards the payment of your TradeX
+    plan on {{ timestamp|date:"M d, Y" }} at {{ timestamp|date:"h:i A" }}.
+</p>
+
+<p>
+    Log into your account to explore the TradeX Universe.
+</p>
+<p>    
+    For any queries contact our customer support team at +91 82 6629 9724.
+</p>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Secure your account: {{ title }} {% endblock %}
+
+{% block body %}
+<div class="text-center">
+  <main class="form-simple">
+    <img class="mt-5 mb-4" src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 mb-4 fw-normal">Create a password</h1>
+
+    {% include 'backbone/flash_msg.html'%}
+
+    <form id="{{ form_id }}">
+      {% csrf_token %}
+      <label for="pass">Password</label>
+      <input type="password" autofocus autocomplete="off" class="my-3 form-control" name="password" 
+      id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-+/]).{8,}" maxlength="32"
+      placeholder="password" oninput="validatePassword()" required>
+
+      <div class="info togg mb-4">
+        <input onclick="toggleView()" id="toggle" type="checkbox">&nbsp; Show Password
+      </div>
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" autocomplete="off" class="my-3 form-control" name="confirm" 
+      id="confirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-+/]).{8,}" 
+      maxlength="32" placeholder="password again" oninput="validatePassword()" required>
+
+      <div class="togg info">
+        <h6 class="mb-3">Password Requirements:</h6>   
+        <p class="invalid" id="letter">Must contain uppercase and lowercase letters.</p>
+        <p class="invalid" id="number">Must contain a number.</p>
+        <p class="invalid" id="special">Must contain special character(!@#$%^&*()-+/).</p>       
+        <p class="invalid" id="length">Must contain 8 or more characters.</p>
+        <p class="invalid" id="match">Entered passwords must match.</p>
+      </div>   
+
+      <button disabled class="mt-3 w-100 btn btn-lg btn-primary" id="create_pass" type="submit">Create Password</button>
+    </form>
+
+    <p class="mt-5 text-muted">Do not share your login credentials with anyone.</p>
+    <p class="text-muted">&copy; 2010 - {% now "Y" %}</p>
+  </main>  
+</div>
+{% endblock %}
+
+
+
+

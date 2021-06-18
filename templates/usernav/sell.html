@@ -1,0 +1,42 @@
+{% extends 'backbone/layout.html' %}
+
+{% block title %} Sell stocks {% endblock %}
+
+{% block body %}
+<div class="text-center">
+  <main class="form-simple">
+    <img class="mt-5" src="/static/images/logo.png" alt="TradeX logo" width="150">
+    <h1 class="h3 my-4 fw-normal">Enter stock symbol to sell</h1>
+    
+    {% include 'backbone/flash_msg.html'%}
+
+    <form id="stock-sell">
+      {% csrf_token %}
+    <label for="symbol">Symbol</label>
+      <select name="symbol" id="symbol" class="form-select my-3" required>
+        <option style="display: none;" value="" selected disabled>Select a stock</option>
+        {% if not stocks_owned %}
+          <option style="color: red;" value="" disabled>You don't own any stocks currently</option>
+        {% else %}
+          {% for stock in stocks_owned %}
+            <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
+          {% endfor %}
+        {% endif %}
+      </select>
+
+      <label for="shares">Shares</label>
+      <input autocomplete="off" type="number" class="my-3 form-control" id="shares"
+      name="shares" placeholder="Enter number of shares" max="100" required>
+      
+      <button class="mt-3 w-100 btn btn-lg btn-primary" type="submit">Sell Shares</button>
+    </form>
+    <p class="my-3 text-muted">
+      Only the stocks that you 
+      <a class="quick-link" href="/user/portfolio/">own</a> 
+      are listed here<br>
+      <a class="quick-link" href="/user/stocks/buy/">Buy</a>
+      more stocks to increase your portfolio
+    </p>
+  </main>  
+</div>
+{% endblock %}
