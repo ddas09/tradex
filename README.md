@@ -47,3 +47,25 @@ All the transaction history of the user is displayed on this page.
 - The stock chart widget is taken from [TradingView](https://in.tradingview.com/)'s website.
 - Last but not the least, the core idea of the project has been leveraged from 
 [Week 9: Finance](https://cs50.harvard.edu/x/2021/psets/9/finance/) problem set of CS50.
+
+## Contributing
+
+1. Fork the repository.
+
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Make your changes.
+4. Commit your changes 
+   ```bash
+   git commit -a 'Add new feature'
+   ```
+5. Push to the branch 
+   ```bash
+   git push origin feature/your-feature
+   ```
+6. Create a new Pull Request.
+
+## License
+This project is open-source and licensed under the [MIT License](https://opensource.org/license/mit).
